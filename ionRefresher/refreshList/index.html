@@ -1,0 +1,46 @@
+<!doctype html>
+<html ng-app="refreshList" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="../../lib/ionic/css/ionic.min.css">
+    <script src="../../lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="../../pages-data.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script src="index.js"></script>
+
+
+</head>
+<body>
+
+
+<div class="demo-content-pane">
+
+
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Pull to Refresh</h1>
+    </ion-header-bar>
+
+    <ion-content ng-controller="RefresherCtrl">
+
+        <ion-refresher on-refresh="doRefresh()"
+                       pulling-text="Pull..."
+                       refreshing-text="Refreshing!"
+                       refreshing-icon="ion-loading-c">
+        </ion-refresher>
+
+        <ion-list>
+            <ion-item ng-repeat="item in items">{{item}}</ion-item>
+        </ion-list>
+
+    </ion-content>
+
+</div>
+<div class="bar bar-footer bar-light demo-footer">
+
+</div>
+
+</body>
+</html>
+

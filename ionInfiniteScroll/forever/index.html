@@ -1,0 +1,38 @@
+<!doctype html>
+<html ng-app="forever" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="../../lib/ionic/css/ionic.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="../../lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="../../pages-data.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="index.js"></script>
+
+</head>
+<body>
+<div class="demo-content-pane">
+    <ion-header-bar>
+        <h1 class="title">Scroll Down to Load More</h1>
+    </ion-header-bar>
+    <ion-content ng-controller="ForeverCtrl">
+        <div class="list">
+            <div class="item" ng-repeat="item in items">
+                {{item}}
+            </div>
+        </div>
+
+        <ion-infinite-scroll on-infinite="loadMoreItems()" icon="ion-loading-c">
+        </ion-infinite-scroll>
+    </ion-content>
+
+</div>
+<div class="bar bar-footer bar-light demo-footer">
+
+</div>
+
+
+</body>
+</html>
+

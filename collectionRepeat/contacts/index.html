@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="contacts" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="../../lib/ionic/css/ionic.min.css">
+    <script src="../../lib/ionic/js/ionic.bundle.min.js"></script>
+    <script src="../../pages-data.js"></script>
+    <link rel="stylesheet" href="contacts.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="contacts.js"></script>
+
+
+</head>
+<body>
+
+
+<div class="demo-content-pane">
+
+
+    <div ng-controller="ContactsCtrl">
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">1000 Contacts</h1>
+
+            <div class="button" ng-click="scrollBottom()">
+                Bottom
+            </div>
+        </ion-header-bar>
+        <ion-header-bar class="bar-light bar-subheader">
+            <input type="search"
+                   placeholder="Filter contacts..."
+                   ng-model="search"
+                   ng-change="scrollTop()">
+            <button ng-if="search.length"
+                    class="button button-icon ion-android-close input-button"
+                    ng-click="clearSearch()">
+            </button>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list">
+                <a class="item contact-item"
+                   collection-repeat="item in getContacts()"
+                   collection-item-height="getItemHeight(item)"
+                   collection-item-width="100 + '%'"
+                   ng-style="{'line-height': getItemHeight(item) + 'px'}"
+                   ng-class="{'item-divider': item.isLetter}">
+                    <i ng-if="!item.isLetter" class="icon"
+                       ng-class="['ion-ios7-person','ion-person','ion-android-contact','ion-android-social-user','ion-person-stalker'][$index % 5]"></i>
+                    {{item.letter || (item.first_name+' '+item.last_name)}}
+                </a>
+            </div>
+        </ion-content>
+    </div>
+
+</div>
+<div class="bar bar-footer bar-light demo-footer">
+
+</div>
+
+
+</body>
+</html>
+
